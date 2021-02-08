@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Temperature</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+      integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+      .container {
+        background: blueviolet;
+        color: rgb(245, 215, 215);
+        font-family: cursive;
+        height: 100vh;
+        margin: auto;
+        text-align: center;
+        position: relative;
+      }
+
+      .outer-div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      h1 {
+        font-size: 9.5rem;
+        text-align: left;
+      }
+
+      #thermo {
+        font-size: 14rem;
+      }
+
+      .my {
+        display: block;
+        color: coral;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      @media (max-width: 900px) {
+        html {
+          font-size: 56%;
+        }
+      }
+      @media (max-width: 600px) {
+        html {
+          font-size: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="outer-div">
+        <h1>
+          <span class="my">My</span>
+          Thermometer
+          <span id="thermo" class="fa"></span>
+        </h1>
+      </div>
+    </div>
+
+    <script>
+      const thermo = document.getElementById("thermo");
+
+      function animateThermo() {
+        thermo.innerHTML = "&#xf2cb";
+        thermo.style.color = "#f4f4f4";
+
+        setTimeout(() => {
+          thermo.style.color = "#97e997";
+        }, 1000);
+        setTimeout(() => {
+          thermo.innerHTML = "&#xf2ca";
+          thermo.style.color = "yellow";
+        }, 2000);
+        setTimeout(() => {
+          thermo.innerHTML = "&#xf2c9";
+          thermo.style.color = "yellow";
+        }, 3000);
+        setTimeout(() => {
+          thermo.innerHTML = "&#xf2c7";
+          thermo.style.color = "red";
+        }, 4000);
+      }
+
+      animateThermo();
+      setInterval(() => {
+        animateThermo();
+      }, 5000);
+    </script>
+  </body>
+</html>
